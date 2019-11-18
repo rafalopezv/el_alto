@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574093788819.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "68AC9D67",
+    "lastKnownWriteTime" : 1571416653,
+    "last_content_update" : 1571416653,
+    "path" : "~/Dropbox/escaños/escaños.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "1,1",
+        "scrollLine" : "1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

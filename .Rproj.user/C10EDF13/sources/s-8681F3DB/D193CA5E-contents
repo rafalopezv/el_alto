@@ -1,0 +1,212 @@
+# sobre: recintos scz
+
+library(tidyverse)
+library(magrittr)
+library(sf)
+library(leaflet)
+library(htmltools)
+
+# carga de mapas
+# gráfico general: dinámico
+mapa_cir <- st_read("geo_mapas/unis_2014.geojson") %>% 
+  filter(DEPARTAMEN == "SANTA CRUZ")
+
+segmentos <- read_csv("segmentacion/data/segmentacion_data.csv") %>% 
+  filter(departamento == "SANTA CRUZ") %>% 
+  filter(!is.na(codigos)) %>% 
+  filter(recinto != "COL.UNIDAD EDUCATIVA ESPAÑA") %>% 
+  filter(recinto != "COL.UNIDAD EDUCATIVA SAN JORGE")
+
+# partir los segmentos en 4
+segmentos %<>%
+  group_split(codigos)
+
+cod_mpos <- rio::import("datos_extras/datos_municipales/input/codigos.ine.xlsx") %>% 
+  janitor::clean_names() %>% 
+  filter(departamento == "Santa Cruz") %>% 
+  pull(codigo)
+  
+  
+municipios <- st_read("geo_mapas/municipios.339.geojson") %>% 
+  filter(CODIGO %in% cod_mpos)
+
+# capa de mapa 
+pf <- "https://api.mapbox.com/styles/v1/rafalopezv/cjtohc0ck7ykr1flpz1zihc3a/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFmYWxvcGV6diIsImEiOiJjanA4eTdicDExZG1hM2ttbjVkamI2N2VvIn0.qG3IffY2IxSgrebVG-3WQQ"
+
+# clasificaciónd de markers
+duro_mas <- makeAwesomeIcon(icon= 'flag', 
+                            markerColor = 'darkblue', 
+                            iconColor = '#00008b')
+
+
+semi_duro_mas <- makeAwesomeIcon(icon= 'flag', 
+                                 markerColor = 'lightblue', 
+                                 iconColor = '#00008b')
+
+
+duro_contra_mas <- makeAwesomeIcon(icon= 'flag',  
+                                   markerColor = 'darkred', 
+                                   iconColor = 'red')
+
+semi_duro_contra_mas <- makeAwesomeIcon(icon= 'flag',  
+                                        markerColor = 'lightred', 
+                                        iconColor = 'red')
+
+# armado de mapa
+leaflet() %>% 
+  addPolygons(data = mapa_cir,
+            stroke = T, 
+            smoothFactor = 0.3, 
+            fillOpacity = 0, 
+            weight = 1.5, 
+            color = "black", 
+            group = "Circunscripciones",
+            label  = ~htmlEscape(paste("CIRCUNSCRIPCIÓN: ", codigo_cir)),
+            labelOptions = labelOptions(textsize = "16px"),
+            highlightOptions = highlightOptions(
+              stroke = 4, 
+              weight = 3
+            )
+) %>% 
+  addTiles(urlTemplate = pf) %>% 
+  addPolygons(data = municipios,
+              stroke = T, 
+              smoothFactor = 0.3, 
+              fillOpacity = 0, 
+              weight = 1.5, 
+              color = "black", 
+              group = "Municipios",
+              label  = ~htmlEscape(paste("MUNICIPIO: ", MUNICIPIO)),
+              labelOptions = labelOptions(textsize = "16px"),
+              highlightOptions = highlightOptions(
+                stroke = 4, 
+                weight = 3
+              )
+  ) %>% 
+  addAwesomeMarkers(lng = segmentos[[1]]$longitud, 
+                    label = segmentos[[1]]$recinto,
+                    lat = segmentos[[1]]$latitud, 
+                    group = "Voto duro del MAS-IPSP",
+                    icon = duro_mas) %>% 
+  addAwesomeMarkers(lng = segmentos[[3]]$longitud, 
+                    label = segmentos[[3]]$recinto,
+                    lat = segmentos[[3]]$latitud, 
+                    group = "Voto semi-duro del MAS-IPSP",
+                    icon = semi_duro_mas) %>% 
+  addAwesomeMarkers(lng = segmentos[[4]]$longitud, 
+                    label = segmentos[[4]]$recinto,
+                    lat = segmentos[[4]]$latitud, 
+                    group = "Voto duro en contra del MAS-IPSP",
+                    icon = duro_contra_mas) %>% 
+  addAwesomeMarkers(lng = segmentos[[2]]$longitud, 
+                    label = segmentos[[2]]$recinto,
+                    lat = segmentos[[2]]$latitud, 
+                    group = "Voto semi-duro en contra del MAS-IPSP",
+                    icon = semi_duro_contra_mas) %>% 
+  addLayersControl(
+    overlayGroups = c("Circunscripciones", "Municipios", "Voto duro del MAS-IPSP", 
+                      "Voto semi-duro del MAS-IPSP", "Voto duro en contra del MAS-IPSP",
+                      "Voto semi-duro en contra del MAS-IPSP"),
+    options = layersControlOptions(collapsed = T)
+  ) %>% 
+  hideGroup(c("Municipios", "Voto duro del MAS-IPSP", 
+              "Voto semi-duro del MAS-IPSP", "Voto duro en contra del MAS-IPSP",
+              "Voto semi-duro en contra del MAS-IPSP")) %>% 
+  setView(lng = -63.0048093, lat = -17.7129711, zoom = 7) %>% 
+  htmlwidgets::saveWidget(here::here("scz", "img", "mapa_scz.html")) 
+  
+#--------------------------------------------------------
+# mapa de recintos con tamaño de inscritos por recinto
+# --------------------------------------------------------
+pf <- "https://api.mapbox.com/styles/v1/rafalopezv/cjygbldn40ar61dp3y1y6279y/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmFmYWxvcGV6diIsImEiOiJjanA4eTdicDExZG1hM2ttbjVkamI2N2VvIn0.qG3IffY2IxSgrebVG-3WQQ"
+
+# armado de mapa
+leaflet() %>% 
+  addPolygons(data = mapa_cir,
+              stroke = T, 
+              smoothFactor = 0.3, 
+              fillOpacity = 0, 
+              weight = 1.5, 
+              color = "black", 
+              group = "Circunscripciones",
+              label  = ~htmlEscape(paste("CIRCUNSCRIPCIÓN: ", codigo_cir)),
+              labelOptions = labelOptions(textsize = "16px"),
+              highlightOptions = highlightOptions(
+                stroke = 4, 
+                weight = 3
+              )
+  ) %>% 
+  addTiles(urlTemplate = pf) %>% 
+  addPolygons(data = municipios,
+              stroke = T, 
+              smoothFactor = 0.3, 
+              fillOpacity = 0, 
+              weight = 1.5, 
+              color = "black", 
+              group = "Municipios",
+              label  = ~htmlEscape(paste("MUNICIPIO: ", MUNICIPIO)),
+              labelOptions = labelOptions(textsize = "16px"),
+              highlightOptions = highlightOptions(
+                stroke = 4, 
+                weight = 3
+              )
+  ) %>% 
+  addCircles(lng = segmentos[[1]]$longitud, stroke = T, 
+             color = "#555FA3", 
+                    label = segmentos[[1]]$recinto,
+                    lat = segmentos[[1]]$latitud, 
+                    group = "Voto duro del MAS-IPSP",
+                    radius = segmentos[[1]]$inscritos/2
+                    ) %>% 
+  addCircles(lng = segmentos[[3]]$longitud, 
+                    label = segmentos[[3]]$recinto,
+                    lat = segmentos[[3]]$latitud, 
+                    group = "Voto semi-duro del MAS-IPSP",
+             color = "#75D0FF",
+             radius = segmentos[[1]]$inscritos/2) %>% 
+  addCircles(lng = segmentos[[4]]$longitud, 
+                    label = segmentos[[4]]$recinto,
+                    lat = segmentos[[4]]$latitud, 
+                    group = "Voto duro en contra del MAS-IPSP",
+             color = "#CC6C49",
+             opacity = 0.9,
+             fill = T,
+             radius = segmentos[[1]]$inscritos/2) %>% 
+  addCircles(lng = segmentos[[2]]$longitud, 
+                    label = segmentos[[2]]$recinto,
+                    lat = segmentos[[2]]$latitud, 
+                    group = "Voto semi-duro en contra del MAS-IPSP",
+             color = "#FADBC5",
+             radius = segmentos[[1]]$inscritos/2) %>% 
+  addLayersControl(
+    overlayGroups = c("Circunscripciones", "Municipios", "Voto duro del MAS-IPSP", 
+                      "Voto semi-duro del MAS-IPSP", "Voto duro en contra del MAS-IPSP",
+                      "Voto semi-duro en contra del MAS-IPSP"),
+    options = layersControlOptions(collapsed = T)
+  ) %>% 
+  hideGroup(c("Municipios", "Voto duro del MAS-IPSP", 
+              "Voto semi-duro del MAS-IPSP", "Voto duro en contra del MAS-IPSP",
+              "Voto semi-duro en contra del MAS-IPSP")) %>% 
+  setView(lng = -63.0048093, lat = -17.7129711, zoom = 7) %>% 
+  htmlwidgets::saveWidget(here::here("scz", "img", "mapa_scz_tamaño_recinto.html")) 
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

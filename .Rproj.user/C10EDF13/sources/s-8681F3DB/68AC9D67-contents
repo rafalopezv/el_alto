@@ -1,0 +1,175 @@
+---
+title: "Simulación de escaños"
+output:
+  html_document:
+    highlight: kate
+    html_document: null
+    theme: cosmo
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+```{r setup, include = FALSE, echo = F}
+knitr::opts_chunk$set(echo = F)
+library(kableExtra)
+library(tidyverse)
+library(ggExtra)
+Sys.setlocale(locale = "es_ES.UTF-8")
+source("modelo_escaños.R")
+```
+<br>
+<br>
+
+# Resumen ejecutivo
+
+<h3>**Se ha simulado la composición de la Asamblea Legislativa Plurinacional a partir de votaciones hipotéticas en dos escenarios:** 
+
+- **Comunidad Ciudadana con el 37% de la votación nacional y el MAS-IPSP con 38%**</h3> 
+
+<br>
+<br>
+<br>
+
+# ¿Qué está en juego y dónde?
+
+<br>
+<br>
+
+## Número de escaños actuales según la Ley No 421
+
+<br>
+<br>
+```{r, echo = F}
+rio::import("tablas_escaños.xlsx", which = "congreso") %>% 
+  kable() %>%
+  kable_styling(font_size = 16) %>% 
+  row_spec(10, bold = T, color = "black", background = "#add8e6") 
+  
+```
+<br>
+<br>
+
+## ¿Con qué sistema electoral se eligen?
+
+<br>
+<br>
+```{r, echo = F}
+rio::import("tablas_escaños.xlsx", which = "sistema_electoral") %>% 
+  kable() %>%
+  kable_styling(font_size = 16) 
+```
+<br>
+<br>
+
+## ¿Cómo se reparten los 7 escaños especiales indígenas según la ley 026?
+
+<br>
+<br>
+```{r, echo = F}
+rio::import("tablas_escaños.xlsx", which = "indigenas") %>% 
+  kable() %>%
+  kable_styling(font_size = 16) 
+```
+<br>
+<br>
+
+# Simulación 1: MAS-IPSP con 40% y CC con 30%
+
+<br>
+<br>
+
+## Resultados hipotéticos: Porcentaje de votos válidos por partido y departamento
+
+```{r, echo = F, warning =  F, message = F}
+rio::import("tablas_escaños.xlsx", which = "simulacion") %>%
+  select(Departamento, CC, "MAS-IPSP", BDN, MTS, PDC, UCS, MNR, "PAN-BOL", FPV) %>% 
+  janitor::remove_empty() %>% 
+  filter(Departamento != "BOLIVIA") %>% 
+  mutate(Departamento = str_to_title(Departamento)) %>% 
+  kable() %>%
+  kable_styling(font_size = 16) %>% 
+  column_spec(2, color = "black", background = "#add8e6")
+```
+<br>
+<br>
+<h2>**Resultados de la simulación: voto nacional**</h2>
+
+```{r, echo = F, fig.height = 20, fig.width = 60}
+resultados
+```
+
+## Asignación de escaños
+
+<h2>**Resultados de la repartición de escaños**</h2>
+
+```{r, echo = F, warning =  F, message = F}
+global %>% 
+  kable() %>%
+  kable_styling(font_size = 16) %>% 
+  row_spec(filas, bold = T, color = "black", background = "#add8e6") 
+```
+
+
+```{r, echo = F, fig.height = 20, fig.width = 60}
+grafico_general
+```
+<br>
+<br>
+
+# Método
+
+## Para la asignación de escaños a diputados plurinominales y senadores:
+
+- Se calculó el porcentaje de participación electoral y votos válidos de la elección nacional de 2014 para utilizarlos como aproximaciones a la última elección en jurisdicción nacional: elecciones judiciales de 2017. Esto se hizo para cada uno de los departamentos. El resultado de esta parte comprende el número de electores que participan en la hipotética elección y los votos válidos emitidos
+
+- En este caso, se partió de resultados nacionales por partido y se calcularon los resulltados departamentales para cada partido de modo que en suma sean iguales al resultado nacional.  
+
+- El cálculo de porcentajes de votos por departamento para el MAS-IPSP se calculó de la siguiente forma:
+Se computaron las votaciones porcentuales por departamento de las elecciones de 2002, 2005, 2009 y 2014. Se computó la votación mínima, máxima, promedio y la mediana de votación. De esos cuatro resultados se eligió el que se aproxime más al resultado nacional estimado para esta sigla: promedio de votación. Siendo el promedio 44%, cuatro puntos por encima del estimado, se redujo el porcetaje de los votos de cada departamento en favor del MAS, en aproximadamente 3,5%, hasta alcanzar el 40%. Una vez hecho esto, se asignaron los escaños a partir del método que D´hont que estipula la ley. 
+
+- Para los porcentajes de votación de Comunidad Ciudadana, al igual que para el MAS-IPSP, se partió de una votación nacional estimada del 30% y se calularon los porcentaje departamentales de acuerdo a estimaciones personales y de encuestas. Para el resto de lso partidos se siguió el mismo procedimiento.
+
+## Para los escaños de las circunscripciones especiales indígenas:
+
+- Se replicaron los resultados de la elección nacional de 2014
+
+## Para los escaños de las circunscripciones uninominales:
+
+- Se repartieron los escaños uninominales proporcionalmente a la votación simulada. 
+
+<br>
+<br>
+<br>
+
+# Anexo1: 
+
+## Reparto de diputados plurinominales y senadores de acuerdo del sistema de reparto D'hont
+
+### Reparto de senadores
+
+<br>
+<br>
+```{r, echo = F, warning =  F, message = F}
+escaños_senado %>% 
+  kable() %>%
+  kable_styling(font_size = 16) 
+```
+
+
+### Reparto de diputados plurinominales
+<br>
+<br>
+
+```{r, echo = F, warning =  F, message = F}
+escaños_pluris %>% 
+  kable() %>%
+  kable_styling(font_size = 16) 
+```
+<br>
+<br>
+
+

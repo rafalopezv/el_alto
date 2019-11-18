@@ -1,0 +1,42 @@
+---
+title: "¿Es El Alto el mismo que en 2003?"
+output:
+  html_document:
+    highlight: kate
+    html_document: null
+    theme: cosmo
+---
+
+## Evo Morales y el MAS-IPSP han perdido 33% de su apoyo en la ciudad de El Alto. 
+
+![](voto_mas_tiempo.jpg)
+
+## El Alto votó en 134 recintos, el MAS-IPSP ganó en 83 (61%) mientras la oposición en suma en 51 (39%).   
+
+Los puntos de color celeste muestran los recintos donde el MAS-IPSP ganó, mientras los amarillo donde la opoisición (en suma) lo hizo. El tamaño de los circulo muestra el tamaño de la voctoria, más grande el circulo, más alta la  votación.
+
+En la parte derecha puede activarse y descativarse los recintos cuya vovictoria le corresponde a uno de los dos bloques. Al pasar el moouse por el recinto, se muestra el nombre del mismo y el porcentaje de votación.
+
+La oposición al MAS-IPSP se con concentra en las zonas más cercanas a La Paz. En el caso del MAS-IPSP, mientras más periférico el recinto, mayor su apoyo.
+
+
+<iframe frameBorder="0" src="el_alto_binario.html" width="100%" height="600" allowtransparency="true"></iframe>
+
+
+## Desempeño electoral por partido y recinto   
+
+Bajo las mismas características del mapa anterior, el siguiente es un añadido para ver el desempeño electoral de cada uno de los partidos en la ciudad de El Alto. Los selectores de la parte de arriba a la derecha permiten sobreponer o individualizar la votación de cada uno de los partido
+
+<iframe frameBorder="0" src="el_alto_partido.html" width="100%" height="600" allowtransparency="true"></iframe>
+
+## ¿Es El Alto el mismo?
+
+No. 
+
+- Evo Morales y el MAS-IPSP van de caida desde el 2009. Desde ese momento perdieron 33% de apoyo
+
+- Evo Morales y el MAS-IPSP tienen mayor extensión territorial, pero ello solo significa 54% del apoyo.
+
+- La oposición concentra su apoyo en zonas consideradas "céntricas" mientras el Evo Morales y el MAS-IPSP lo hacen en las periferias.
+
+

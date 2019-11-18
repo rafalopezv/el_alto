@@ -1,0 +1,342 @@
+---
+title: "uninominales"
+output: flexdashboard::flex_dashboard
+author: datosCC
+---
+
+```{r setup, include=FALSE, eval=FALSE}
+Sys.setlocale(locale = "es_ES.UTF-8")
+```
+
+La Paz
+=====================================  
+<br>
+<br>
+**Circunscripciones La Paz**
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_la_paz.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados en las circunscripciones de la ciudad de La Paz**
+<br>
+<center>![](img/circun_6.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_7.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_8.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_9.jpg){ width=70% }</center>
+<br>
+**Resultados en las circunscripciones de la ciudad de El Alto**
+<br>
+<center>![](img/circun_10.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_11.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_12.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_13.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de La Paz**
+<br>
+<center>![](img/circun_14.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_14.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_15.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_15.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_16.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_16.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_17.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_17.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_18.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_18.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_19.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_19.jpg){ width=70% }</center>
+
+Oruro
+=====================================  
+<br>
+<br>
+**Circunscripciones Oruro**
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_oruro.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+<br>
+<br>
+**Resultados en las circunscripciones de la ciudad de Oruro**
+<br>
+<center>![](img/circun_29.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_30.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de Oruro**
+<br>
+<center>![](img/circun_31.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_31.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_32.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_32.jpg){ width=70% }</center>
+
+Potosí
+=====================================  
+<br>
+<br>
+**Circunscripciones Potosí**
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_potosí.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de laa circunscripciones de la ciudad de Potosí**
+<center>![](img/circun_33.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_34.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de Potosí**
+<br>
+<center>![](img/circun_35.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_35.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_36.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_36.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_37.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_37.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_38.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_38.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_39.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_39.jpg){ width=70% }</center>
+
+Chuquisaca
+=====================================  
+<br>
+<br>
+**Circunscripciones Chuquisaca**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_chuquisaca.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de la circunscripción de la ciudad de Sucre**
+<center>![](img/circun_1.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_2.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_3.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de Chuquisaca**
+<br>
+<center>![](img/circun_4.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_4.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_5.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_5.jpg){ width=70% }</center>
+
+Cochabamba
+=====================================  
+<br>
+<br>
+**Circunscripciones Cochabamba**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_cochabamba.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de la circunscripción de la ciudad de Cochabamba**
+<center>![](img/circun_20.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_21.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_22.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de Cochabamba**
+<br>
+<center>![](img/circun_23.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_23.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_24.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_24.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_25.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_25.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_26.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_26.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_27.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_27.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_28.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_28.jpg){ width=70% }</center>
+
+
+Tarija
+=====================================  
+<br>
+<br>
+**Circunscripciones Tarija**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_tarija.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de las circunscripciones de la ciudad de Tarija**
+<center>![](img/circun_41.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_40.jpg){ width=70% }</center>
+<br>
+**Resultados en otras circunscripciones del departamento de Tarija**
+<br>
+<center>![](img/circun_42.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_42.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_43.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_43.jpg){ width=70% }</center>
+
+Santa Cruz 
+=====================================  
+<br>
+<br>
+**Circunscripciones Santa Cruz**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_santa_cruz.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de las circunscripciones de la ciudad de Santa Cruz**
+<br>
+<center>![](img/circun_44.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_45.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_46.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_47.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_48.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_50.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_51.jpg){ width=70% }</center>
+<br>
+**Resultados de otras circunscripciones del departamento de Santa Cruz**
+<br>
+<center>![](img/circun_52.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_52.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_53.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_53.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_54.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_54.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_55.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_55.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_56.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_56.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_57.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_57.jpg){ width=70% }</center>
+
+Beni
+=====================================  
+<br>
+<br>
+**Circunscripciones Beni**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_beni.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de las circunscripciones del departamento de Beni**
+<br>
+<center>![](img/circun_58.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_58.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_59.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_59.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_60.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_60.jpg){ width=70% }</center>
+<br>
+<center>![](img/circun_61.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_61.jpg){ width=70% }</center>
+
+Pando
+=====================================  
+<br>
+<br>
+**Circunscripciones Pando**
+<br>
+<br>
+
+<iframe frameBorder="0" src="https://petardo.org/uploads/unis/circun_pando.html" width="100%" height="100%" allowtransparency="true"></iframe>
+
+<br>
+<br>
+**Resultados de la circunscripción de la ciudad de Cobija**
+<br>
+<center>![](img/circun_62.jpg){ width=70% }</center>
+<br>
+**Resultados de las circunscripciones del departamento de Pando**
+<center>![](img/circun_63.jpg){ width=70% }</center>
+<br>
+<center>![](img/peso_circun_63.jpg){ width=70% }</center>
+
+
